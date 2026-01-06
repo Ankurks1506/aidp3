@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Search Document Q&A v2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+        }
+
+        .sidebar {
+            width: 400px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            padding: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-header {
+            background: var(--primary-gradient);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: -24px -24px 16px -24px;
+            border-bottom: 2px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .glass-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .btn-modern {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success-gradient);
+        }
+
+        .btn-danger {
+            background: var(--danger-gradient);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.4);
+        }
+
+        .form-control-modern {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .form-control-modern:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .form-control-modern::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .chat-header {
+            background: var(--primary-gradient);
+            border-radius: 0 0 30px 30px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 4s infinite;
+        }
+
+        .chat-container {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            animation: messageSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            background: var(--primary-gradient);
+            align-self: flex-end;
+            border-bottom-right-radius: 6px;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+.message.ai {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass_border);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 70%;
+            animation: messageSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .message-container.user {
+            align-self: flex-end;
+        }
+
+        .message-container.ai {
+            align-self: flex-start;
+        }
+
+        .source-message {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .source-header {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .source-header i {
+            color: #667eea;
+        }
+
+        .source-content {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            padding: 8px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 8px;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chat-input-container {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: 24px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 16px;
+            align-items: flex-end;
+            flex-wrap: nowrap;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: var(--text-primary);
+            padding: 16px 24px;
+            resize: none;
+            min-height: 60px;
+            max-height: 140px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: inherit;
+            overflow-y: auto;
+            white-space: normal;
+            word-wrap: break-word;
+            word-break: normal;
+            line-height: 1.5;
+            min-width: 600px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .chat-input:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            outline: none;
+        }
+
+        .send-button {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .send-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .folder-tree {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .folder-tree:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .folder-item {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .folder-item:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateX(2px);
+        }
+
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .folder-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .folder-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .delete-folder-btn {
+            background: var(--danger-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clear-folder-btn {
+            background: var(--success-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .file-list {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .file-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            gap: 10px;
+        }
+
+        .file-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(2px);
+        }
+
+        .file-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .delete-btn {
+            background: var(--danger-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+        }
+
+        .clear-file-btn {
+            background: var(--success-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+        }
+
+        .file-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(2px);
+        }
+
+        .delete-btn {
+            background: var(--danger-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .delete-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(250, 112, 154, 0.4);
+        }
+
+        .clear-file-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4);
+        }
+
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .folder-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .folder-info strong {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+
+        .delete-folder-btn {
+            background: var(--danger-gradient);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .delete-folder-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(250, 112, 154, 0.4);
+        }
+
+        .clear-folder-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-details {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .source-tag {
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .source-tag:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .folder-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .folder-features .badge {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .folder-features .badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .alert-modern {
+            border-radius: 12px;
+            border: none;
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.online {
+            background: #4facfe;
+        }
+
+        .status-indicator.offline {
+            background: #fa709a;
+        }
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+        }
+
+        .status-text {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .inventory-section {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .inventory-container {
+            overflow-y: auto;
+            padding-right: 8px;
+            max-height: calc(100vh - 400px);
+            position: relative;
+        }
+
+        .inventory-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .inventory-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .inventory-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+
+
+
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 1001;
+                transform: translateX(-100%);
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .message {
+                max-width: 85%;
+            }
+
+        .inventory-section {
+            margin-top: 1rem;
+        }
+
+        .inventory-container {
+            max-height: calc(100vh - 350px);
+        }
+        }
+
+
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner-border mb-3" style="width: 3rem; height: 3rem; color: #667eea;"></div>
+            <h5>Processing...</h5>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <div class="p-3">
+                    <h5 class="sidebar-title mb-4">Document Assistant</h5>
+                    
+                    <!-- System Status Bar -->
+                    <div class="status-bar mb-3">
+                        <span class="status-indicator" id="statusIndicator"></span>
+                        <span class="status-text" id="lastHealthCheck">Checking...</span>
+                    </div>
+
+                    <!-- Process Documents Section -->
+                    <div class="glass-card">
+                        <div class="glass-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-folder-open me-2"></i>Process Documents
+                            </h5>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="folderPath" class="form-label fw-semibold">Folder Selection:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-modern" id="folderPath" 
+                                       placeholder="Browse files or enter path...">
+                                <button class="btn btn-modern" type="button" id="browseButton">
+                                    <i class="fas fa-folder me-2"></i>Browse
+                                </button>
+                            </div>
+                            <input type="file" id="folderInput" style="display: none;" webkitdirectory directory multiple>
+                            <small class="text-muted mt-2 d-block">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Select a folder with documents (.txt, .pdf, .docx)
+                            </small>
+                        </div>
+                        
+                        <div class="d-flex gap-2 mb-3">
+                            <button id="processBtn" class="btn btn-modern flex-fill">
+                                <span class="spinner-border spinner-border-sm me-2 d-none" id="processSpinner"></span>
+                                <i class="fas fa-cogs me-2"></i>Process
+                            </button>
+                            <button id="clearBtn" class="btn btn-modern btn-danger">
+                                <i class="fas fa-trash me-2"></i>Clear
+                            </button>
+                        </div>
+                        
+                        <div id="processStatus"></div>
+                    </div>
+
+                    <!-- Document Inventory Section -->
+                    <div class="inventory-section">
+                        <div class="glass-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-database me-2"></i>Document Inventory
+                                </h5>
+                            </div>
+                        </div>
+                        
+                        <div class="inventory-container" id="inventoryContainer">
+                            <div class="empty-state">
+                                <i class="fas fa-folder-open fa-2x mb-3"></i>
+                                <p>No documents loaded yet</p>
+                                <small>Process a folder to see your documents here</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="chat-header">
+                <div>
+                    <h4 class="mb-1">AI Document Assistant</h4>
+                    <small>Ask me anything about your documents</small>
+                </div>
+                <div>
+                    <button class="btn btn-modern btn-sm" onclick="clearChat()">
+                        <i class="fas fa-broom me-1"></i>Clear Chat
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <i class="fas fa-smile fa-3x mb-3"></i>
+                        <h3>Welcome to AI Document Assistant</h3>
+                        <p>I'm here to help you find answers in your documents with enhanced accuracy and speed.</p>
+                        <small class="d-block mt-2">Upload some documents using the sidebar, then ask me anything!</small>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            class="chat-input" 
+                            id="chatInput" 
+                            placeholder="Ask me about your documents..."
+                            rows="1"></textarea>
+                        <button class="send-button" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sidebarVisible = true;
+        let selectedFolder = null;
+        let isProcessing = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Vector Search App v2 loaded');
+            initializeApp();
+        });
+
+        function initializeApp() {
+            loadInventory();
+            checkHealth();
+            setInterval(checkHealth, 30000); // Check health every 30 seconds
+            
+            document.getElementById('chatInput').focus();
+            
+            // Event listeners
+            document.getElementById('browseButton').addEventListener('click', browseFolder);
+            document.getElementById('processBtn').addEventListener('click', processFolder);
+            document.getElementById('clearBtn').addEventListener('click', clearDatabase);
+            document.getElementById('sendButton').addEventListener('click', sendMessage);
+            document.getElementById('folderInput').addEventListener('change', handleFolderSelection);
+            document.getElementById('chatInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        }
+
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            sidebarVisible = !sidebarVisible;
+        }
+
+        function showLoading(show) {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.style.display = show ? 'flex' : 'none';
+        }
+
+        function checkHealth() {
+            fetch('/health')
+                .then(response => response.json())
+                .then(data => {
+                    const indicator = document.getElementById('statusIndicator');
+                    const lastCheck = document.getElementById('lastHealthCheck');
+                    
+                    if (data.services && data.services.ollama && data.services.chromadb) {
+                        indicator.className = 'status-indicator online';
+                        lastCheck.textContent = 'Online';
+                    } else {
+                        indicator.className = 'status-indicator offline';
+                        lastCheck.textContent = 'Partial';
+                    }
+                })
+                .catch(error => {
+                    console.error('Health check failed:', error);
+                    const indicator = document.getElementById('statusIndicator');
+                    const lastCheck = document.getElementById('lastHealthCheck');
+                    indicator.className = 'status-indicator offline';
+                    lastCheck.textContent = 'Offline';
+                });
+        }
+
+        function browseFolder() {
+            const input = document.getElementById('folderInput');
+            input.value = '';
+            input.click();
+        }
+
+        function handleFolderSelection(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) {
+                return;
+            }
+            
+            const supportedExtensions = ['.txt', '.pdf', '.docx'];
+            const supportedFiles = Array.from(files).filter(file => {
+                const extension = '.' + file.name.split('.').pop().toLowerCase();
+                return supportedExtensions.includes(extension);
+            });
+            
+            if (supportedFiles.length === 0) {
+                showStatus('processStatus', 'No supported files found. Please select a folder containing .txt, .pdf, or .docx files.', 'danger');
+                return;
+            }
+            
+            const firstFile = supportedFiles[0];
+            let folderName = 'selected_folder';
+            
+            if (firstFile && firstFile.webkitRelativePath) {
+                folderName = firstFile.webkitRelativePath.split('/')[0];
+            }
+            
+            document.getElementById('folderPath').value = `Selected: ${folderName} (${supportedFiles.length} files)`;
+            selectedFolder = {
+                path: folderName,
+                files: supportedFiles
+            };
+            
+            showStatus('processStatus', `Ready to process ${supportedFiles.length} files`, 'info');
+        }
+
+        function sendMessage() {
+            if (isProcessing) return;
+            
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) {
+                return;
+            }
+
+            addMessage(message, 'user');
+            input.value = '';
+
+            showTypingIndicator(true);
+            queryAI(message);
+        }
+
+        function addMessage(content, sender, sources = []) {
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Remove welcome message if it exists
+            const welcomeMessage = chatMessages.querySelector('.welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+
+            // Create main message container
+            const messageContainer = document.createElement('div');
+            messageContainer.className = `message-container ${sender}`;
+            
+            // Create AI response message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<div class="message-content">${escapeHtml(content)}</div>`;
+            
+            messageContainer.appendChild(messageDiv);
+            
+            // Add sources as separate messages if they exist
+            if (sources && sources.length > 0) {
+                sources.forEach((source, index) => {
+                    const sourceDiv = document.createElement('div');
+                    sourceDiv.className = 'message source-message';
+                    
+                    const fileName = source.file || 'Unknown Document';
+                    const pageString = source.page_string || 'Page 1';
+                    
+                    sourceDiv.innerHTML = `
+                        <div class="source-header">
+                            <i class="fas fa-file-alt me-2"></i>
+                            <strong>Source ${index + 1}:</strong> ${escapeHtml(fileName)} - ${pageString}
+                        </div>
+                    `;
+                    
+                    messageContainer.appendChild(sourceDiv);
+                });
+            }
+            
+            showTypingIndicator(false);
+            chatMessages.appendChild(messageContainer);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function showTypingIndicator(show) {
+            const sendButton = document.getElementById('sendButton');
+            
+            if (show) {
+                sendButton.innerHTML = '<div class="spinner-border spinner-border-sm"></div>';
+                sendButton.disabled = true;
+            } else {
+                sendButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+                sendButton.disabled = false;
+            }
+        }
+
+        async function queryAI(message) {
+            try {
+                const response = await fetch('/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addMessage(data.answer, 'ai', data.sources);
+                } else {
+                    addMessage(`Error: ${data.error}`, 'ai');
+                }
+            } catch (error) {
+                console.error('Query error:', error);
+                addMessage(`Connection error: ${error.message}`, 'ai');
+            }
+        }
+
+        function clearChat() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = `
+                <div class="welcome-message">
+                    <i class="fas fa-smile fa-3x mb-3"></i>
+                    <h3>Welcome to AI Document Assistant</h3>
+                    <p>I'm here to help you find answers in your documents with enhanced accuracy and speed.</p>
+                    <small class="d-block mt-2">Upload some documents using the sidebar, then ask me anything!</small>
+                </div>
+            `;
+        }
+
+        async function loadInventory() {
+            try {
+                console.log('Loading inventory...');
+                const response = await fetch('/get_inventory');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Inventory data received:', data);
+                
+                if (data.folders) {
+                    displayInventory(data.folders);
+                } else {
+                    console.warn('No folders data in response:', data);
+                    displayInventory({});
+                }
+            } catch (error) {
+                console.error('Error loading inventory:', error);
+                const container = document.getElementById('inventoryContainer');
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle fa-2x mb-3 text-warning"></i>
+                        <p>Error loading inventory</p>
+                        <small>${escapeHtml(error.message)}</small>
+                    </div>
+                `;
+            }
+        }
+
+        function displayInventory(folders) {
+            const container = document.getElementById('inventoryContainer');
+            
+            console.log('Displaying inventory:', folders);
+            
+            if (!folders || Object.keys(folders).length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-folder-open fa-2x mb-3"></i>
+                        <p>No documents loaded yet</p>
+                        <small>Process a folder to see your documents here</small>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            for (const [folderPath, folderData] of Object.entries(folders)) {
+                const folderName = folderPath.split(/[/\\]/).pop() || folderPath || 'Unknown Folder';
+                const fileCount = Object.keys(folderData.files || {}).length;
+                
+                console.log(`Processing folder: ${folderPath} -> ${folderName} (${fileCount} files)`);
+                
+                html += `
+                    <div class="folder-tree">
+                        <div class="folder-item">
+                            <div class="folder-header">
+                                <div class="folder-info">
+                                    <i class="fas fa-folder me-2"></i>
+                                    <strong title="${escapeHtml(folderPath)}">${escapeHtml(folderName)}</strong>
+                                    <small class="text-muted ms-2">${fileCount} files</small>
+                                </div>
+                                <div class="folder-actions">
+                                    <button class="clear-folder-btn" onclick="clearFolder('${escapeHtml(folderPath)}')" title="Clear folder contents">
+                                        <i class="fas fa-broom"></i>
+                                    </button>
+                                    <button class="delete-folder-btn" onclick="deleteFolder('${escapeHtml(folderPath)}')" title="Delete entire folder">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file-list">
+                `;
+                
+                if (folderData.files) {
+                    for (const [fileName, fileData] of Object.entries(folderData.files)) {
+                        const chunks = fileData.chunks || [];
+                        const pages = fileData.page_numbers || [];
+                        const pageRange = pages.length > 0 ? `Pages ${pages[0]}-${pages[pages.length - 1]}` : 'Unknown pages';
+                        
+                        // Get file type icon
+                        const fileIcon = getFileIcon(fileName);
+                        
+                        html += `
+                            <div class="file-item">
+                                <div class="file-info">
+                                    <div class="file-name" title="${escapeHtml(fileName)}">
+                                        <i class="fas ${fileIcon} me-1"></i>${escapeHtml(fileName)}
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="clear-file-btn" onclick="clearFile('${escapeHtml(folderPath)}', '${escapeHtml(fileName)}')" title="Clear file contents">
+                                        <i class="fas fa-eraser"></i>
+                                    </button>
+                                    <button class="delete-btn" onclick="deleteFile('${escapeHtml(folderPath)}', '${escapeHtml(fileName)}')" title="Delete this file">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+            console.log('Inventory HTML updated');
+        }
+
+        function getFolderFeatures(folderData) {
+            const features = [];
+            
+            // Basic features
+            if (folderData.chunk_count > 0) {
+                features.push({
+                    name: 'Searchable',
+                    icon: 'fa-search',
+                    description: 'Documents are indexed and ready for AI search'
+                });
+            }
+            
+            // File type features
+            const fileTypes = new Set();
+            if (folderData.files) {
+                Object.keys(folderData.files).forEach(fileName => {
+                    const ext = fileName.split('.').pop().toLowerCase();
+                    fileTypes.add(ext);
+                });
+            }
+            
+            if (fileTypes.has('pdf')) {
+                features.push({
+                    name: 'PDF Support',
+                    icon: 'fa-file-pdf',
+                    description: 'Contains PDF documents with extracted text'
+                });
+            }
+            
+            if (fileTypes.has('docx')) {
+                features.push({
+                    name: 'Word Support',
+                    icon: 'fa-file-word',
+                    description: 'Contains Word documents'
+                });
+            }
+            
+            if (fileTypes.has('txt')) {
+                features.push({
+                    name: 'Text Support',
+                    icon: 'fa-file-alt',
+                    description: 'Contains text documents'
+                });
+            }
+            
+            // Size-based features
+            if (folderData.chunk_count > 100) {
+                features.push({
+                    name: 'Large Dataset',
+                    icon: 'fa-database',
+                    description: 'Extensive document collection for comprehensive answers'
+                });
+            }
+            
+            // Multi-page features
+            let totalPages = 0;
+            if (folderData.files) {
+                Object.values(folderData.files).forEach(fileData => {
+                    const pages = fileData.page_numbers || [];
+                    totalPages += Math.max(...pages, 1);
+                });
+            }
+            
+            if (totalPages > 10) {
+                features.push({
+                    name: 'Multi-Page',
+                    icon: 'fa-file-lines',
+                    description: `Contains ${totalPages} pages of content`
+                });
+            }
+            
+            // Default feature if no others
+            if (features.length === 0) {
+                features.push({
+                    name: 'Ready',
+                    icon: 'fa-check-circle',
+                    description: 'Folder is processed and ready'
+                });
+            }
+            
+            return features.slice(0, 4); // Limit to 4 features
+        }
+
+        function getFileIcon(fileName) {
+            const ext = fileName.split('.').pop().toLowerCase();
+            switch (ext) {
+                case 'pdf': return 'fa-file-pdf';
+                case 'docx': return 'fa-file-word';
+                case 'doc': return 'fa-file-word';
+                case 'txt': return 'fa-file-alt';
+                case 'xlsx': return 'fa-file-excel';
+                case 'xls': return 'fa-file-excel';
+                case 'pptx': return 'fa-file-powerpoint';
+                case 'ppt': return 'fa-file-powerpoint';
+                default: return 'fa-file';
+            }
+        }
+
+        async function processFolder() {
+            if (isProcessing) return;
+            
+            const processBtn = document.getElementById('processBtn');
+            const spinner = document.getElementById('processSpinner');
+            const statusDiv = document.getElementById('processStatus');
+            
+            isProcessing = true;
+            spinner.classList.remove('d-none');
+            processBtn.disabled = true;
+            showLoading(true);
+
+            try {
+                if (selectedFolder && selectedFolder.files && selectedFolder.files.length > 0) {
+                    const formData = new FormData();
+                    formData.append('folder_name', selectedFolder.path);
+                    
+                    selectedFolder.files.forEach((file, index) => {
+                        formData.append(`file_${index}`, file);
+                    });
+
+                    const response = await fetch('/process_folder_files', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        showStatus('processStatus', data.message, 'success');
+                        await loadInventory();
+                        
+                        const chatMessages = document.getElementById('chatMessages');
+                        if (chatMessages.querySelector('.welcome-message')) {
+                            addMessage(`Great! I have processed ${data.total_chunks} chunks from ${data.processed_files.length} documents. You can now ask me anything about these documents!`, 'ai');
+                        }
+                    } else {
+                        showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                    }
+                } else {
+                    const manualPath = document.getElementById('folderPath').value.trim();
+                    if (!manualPath || manualPath === '') {
+                        showStatus('processStatus', 'Please select a folder or enter a valid path', 'danger');
+                    } else {
+                        const response = await fetch('/process_folder_manual', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ folder_path: manualPath })
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+showStatus('processStatus', data.message, 'success');
+                            await loadInventory();
+                            
+                            const chatMessages = document.getElementById('chatMessages');
+                            if (chatMessages.querySelector('.welcome-message')) {
+                                addMessage(`Great! I have processed documents from ${manualPath}. You can now ask me anything about these documents!`, 'ai');
+                            }
+                        } else {
+showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error in processFolder:', error);
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                isProcessing = false;
+                spinner.classList.add('d-none');
+                processBtn.disabled = false;
+                showLoading(false);
+            }
+        }
+
+        async function clearDatabase() {
+            if (!confirm('Are you sure you want to clear the entire database? This action cannot be undone.')) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/clear_db', {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('processStatus', data.message, 'success');
+                    await loadInventory();
+                    
+                    addMessage('I have cleared the entire database. All documents have been removed and inventory is now empty. You can process new folders to start fresh!', 'ai');
+                } else {
+                    showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                }
+            } catch (error) {
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function deleteFile(folderPath, fileName) {
+            if (!confirm(`Are you sure you want to delete "${fileName}" from the database?`)) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/delete_file', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        folder_path: folderPath,
+                        file_name: fileName 
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('processStatus', data.message, 'success');
+                    await loadInventory();
+                    addMessage(`I have deleted "${fileName}" from the database. The document has been removed and will no longer appear in search results.`, 'ai');
+                } else {
+                    showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                }
+            } catch (error) {
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function clearFile(folderPath, fileName) {
+            if (!confirm(`Are you sure you want to clear all chunks from "${fileName}"? This will remove the document content but keep the file entry.`)) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/delete_file', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        folder_path: folderPath,
+                        file_name: fileName 
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('processStatus', data.message, 'success');
+                    await loadInventory();
+                    addMessage(`I have cleared all chunks from "${fileName}". The file entry remains but the content has been removed.`, 'ai');
+                } else {
+                    showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                }
+            } catch (error) {
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function deleteFolder(folderPath) {
+            const folderName = folderPath.split(/[/\\]/).pop() || folderPath;
+            if (!confirm(`Are you sure you want to delete the entire folder "${folderName}" and all its files? This action cannot be undone.`)) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/delete_folder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        folder_path: folderPath 
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('processStatus', data.message, 'success');
+                    await loadInventory();
+                    addMessage(`I have deleted the entire folder "${folderName}" and all its files from the database. ${data.deleted_chunks} chunks have been removed.`, 'ai');
+                } else {
+                    showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                }
+            } catch (error) {
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function clearFolder(folderPath) {
+            const folderName = folderPath.split(/[/\\]/).pop() || folderPath;
+            if (!confirm(`Are you sure you want to clear all chunks from folder "${folderName}"? This will remove all document content but keep the folder structure.`)) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/clear_folder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        folder_path: folderPath 
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus('processStatus', data.message, 'success');
+                    await loadInventory();
+                    addMessage(`I have cleared all chunks from folder "${folderName}". The folder structure remains but all content has been removed.`, 'ai');
+                } else {
+                    showStatus('processStatus', `Error: ${data.error}`, 'danger');
+                }
+            } catch (error) {
+                showStatus('processStatus', `Error: ${error.message}`, 'danger');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function showStatus(elementId, message, type) {
+            const statusElement = document.getElementById(elementId);
+            if (!statusElement) {
+                console.error(`Element with ID "${elementId}" not found`);
+                return;
+            }
+            
+            const alertClass = type === 'success' ? 'alert-success' : 
+                             type === 'danger' ? 'alert-danger' : 
+                             type === 'info' ? 'alert-info' : 'alert-warning';
+            
+            statusElement.innerHTML = `
+                <div class="alert alert-modern ${alertClass} alert-dismissible fade show" role="alert">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'danger' ? 'exclamation-triangle' : 'info-circle'} me-2"></i>
+                    ${message}
+                </div>
+            `;
+            
+            setTimeout(() => {
+                if (statusElement) {
+                    statusElement.innerHTML = '';
+                }
+            }, 5000);
+        }
+    </script>
+    </div>
+</body>
+</html>

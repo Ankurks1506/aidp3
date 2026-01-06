@@ -1,0 +1,563 @@
+[2026-01-04 15:43:01,457] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:43:01,703] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:43:04,506] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:43:04,507] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:43:04,507] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:43:04,509] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:43:04,635] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:43:04,883] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:43:04,883] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:43:04,883] [INFO] __main__: Debug mode: True
+[2026-01-04 15:43:04,883] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:43:04,883] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:43:04,884] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:43:06,197] [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.160.103:5000
+[2026-01-04 15:43:06,197] [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+[2026-01-04 15:43:06,210] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:44:11,768] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:44:11,906] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:44:14,278] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:44:14,279] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:44:14,279] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:44:14,280] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:44:14,345] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:44:14,454] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:44:14,455] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:44:14,455] [INFO] __main__: Debug mode: True
+[2026-01-04 15:44:14,455] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:44:14,455] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:44:14,455] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:44:15,788] [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.160.103:5000
+[2026-01-04 15:44:15,788] [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+[2026-01-04 15:44:15,793] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:44:17,482] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:44:17,622] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:44:19,985] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:44:19,986] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:44:19,986] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:44:19,986] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:44:20,122] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:44:20,317] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:44:20,318] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:44:20,318] [INFO] __main__: Debug mode: True
+[2026-01-04 15:44:20,318] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:44:20,318] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:44:20,318] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:44:20,355] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:44:20,362] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:44:20,432] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:20] "GET / HTTP/1.1" 200 -
+[2026-01-04 15:44:20,498] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:44:20,498] [INFO] __main__: Getting inventory
+[2026-01-04 15:44:20,508] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-01-04 15:44:20,531] [INFO] __main__: No documents found in inventory
+[2026-01-04 15:44:20,532] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:20] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:44:32,485] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:44:32,598] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:32] "POST /process_folder_files HTTP/1.1" 200 -
+[2026-01-04 15:44:32,605] [INFO] __main__: Getting inventory
+[2026-01-04 15:44:32,611] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:32] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:44:50,496] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:44:54,290] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:44:59,315] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:44:59] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:45:11,191] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:45:11,192] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:45:11] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:45:20,499] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:45:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:45:50,488] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:45:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:46:00,295] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:46:00] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:46:21,304] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:46:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:46:51,302] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:46:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:47:01,299] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:47:01] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:47:20,476] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:47:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:47:51,290] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:47:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:48:02,290] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:48:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:48:21,273] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:48:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:48:28,354] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:48:28,515] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:48:30,931] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:48:30,932] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:48:30,932] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:48:30,933] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:48:31,034] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:48:31,147] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:48:31,147] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:48:31,147] [INFO] __main__: Debug mode: True
+[2026-01-04 15:48:31,147] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:48:31,147] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:48:31,147] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:48:32,441] [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.160.103:5000
+[2026-01-04 15:48:32,441] [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+[2026-01-04 15:48:32,451] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:48:38,180] [INFO] __main__: Getting inventory
+[2026-01-04 15:48:38,182] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:48:38] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:49:02,279] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:49:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:49:02,284] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:49:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:49:07,217] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:49:07,218] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:49:08,105] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:49:09,931] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:49:10,071] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:49:12,445] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:49:12,446] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:49:12,446] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:49:12,446] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:49:12,509] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:49:12,630] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:49:12,630] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:49:12,630] [INFO] __main__: Debug mode: True
+[2026-01-04 15:49:12,631] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:49:12,631] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:49:12,631] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:49:12,649] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:49:12,653] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:49:19,817] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:49:19,818] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:49:21,394] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:49:23,191] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:49:23,336] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:49:25,717] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:49:25,718] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:49:25,718] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:49:25,718] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:49:25,782] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:49:25,894] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:49:25,894] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:49:25,894] [INFO] __main__: Debug mode: True
+[2026-01-04 15:49:25,895] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:49:25,895] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:49:25,895] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:49:25,913] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:49:25,916] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:49:25,942] [INFO] __main__: Getting inventory
+[2026-01-04 15:49:25,975] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:49:25] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:50:02,272] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:50:02,276] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:50:14,598] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:14] "GET / HTTP/1.1" 200 -
+[2026-01-04 15:50:14,614] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:14] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:50:14,615] [INFO] __main__: Getting inventory
+[2026-01-04 15:50:14,618] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:14] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:50:28,844] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:50:44,631] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:44] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:50:59,765] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:50:59,766] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:50:59] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:51:02,260] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:51:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:51:14,624] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:51:14] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:51:45,249] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:51:45] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:52:02,252] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:52:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:52:15,252] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:52:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:52:15,450] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:52:15,451] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:52:16,403] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:52:18,896] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:52:19,050] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:52:21,433] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:52:21,434] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:52:21,435] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:52:21,435] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:52:21,533] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:52:21,646] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:52:21,646] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:52:21,646] [INFO] __main__: Debug mode: True
+[2026-01-04 15:52:21,647] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:52:21,647] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:52:21,647] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:52:21,669] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:52:21,672] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:52:34,078] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:52:34,124] [INFO] __main__: Metadata 0: {}
+[2026-01-04 15:52:45,271] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:52:45] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:52:50,081] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:52:50,082] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:52:50] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:53:02,251] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:53:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:53:04,427] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:53:04,427] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:53:05,083] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:53:07,459] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:53:07,610] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:53:10,034] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:53:10,036] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:53:10,036] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:53:10,036] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:53:10,132] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:53:10,245] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:53:10,245] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:53:10,245] [INFO] __main__: Debug mode: True
+[2026-01-04 15:53:10,246] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:53:10,246] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:53:10,246] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:53:10,270] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:53:10,274] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:53:15,253] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:53:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:53:31,541] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:53:31,541] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:53:32,356] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:53:34,255] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:53:34,420] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:53:36,822] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:53:36,823] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:53:36,823] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:53:36,823] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:53:36,888] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:53:37,000] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:53:37,000] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:53:37,001] [INFO] __main__: Debug mode: True
+[2026-01-04 15:53:37,001] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:53:37,001] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:53:37,001] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:53:37,019] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:53:37,023] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:53:45,243] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:53:45] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:53:57,703] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:53:57,750] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 15:53:57,750] [INFO] __main__: Metadatas structure: [[{'file': 'New folder/akmg_resume.pdf', 'source': 'New folder/akmg_resume.pdf', 'chunk_index': 0, 'folder': 'New folder', 'page': 1, 'page_string': 'Page 1'}]]
+[2026-01-04 15:53:57,750] [INFO] __main__: Metadata 0: {}
+[2026-01-04 15:54:02,240] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:54:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:54:07,788] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:54:07,789] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:54:07] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:54:39,538] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:54:39] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:54:45,230] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:54:45] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:55:02,230] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:55:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:55:15,239] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:55:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:55:24,766] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:55:24,767] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 15:55:25,602] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 15:55:30,259] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 15:55:30,547] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 15:55:33,397] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 15:55:33,398] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 15:55:33,399] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 15:55:33,399] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 15:55:33,555] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 15:55:33,742] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 15:55:33,742] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 15:55:33,743] [INFO] __main__: Debug mode: True
+[2026-01-04 15:55:33,743] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 15:55:33,743] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 15:55:33,744] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 15:55:33,784] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 15:55:33,789] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 15:55:36,330] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:55:36,394] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 15:55:36,394] [INFO] __main__: Metadatas structure: [[{'chunk_index': 0, 'source': 'New folder/akmg_resume.pdf', 'file': 'New folder/akmg_resume.pdf', 'page_string': 'Page 1', 'page': 1, 'folder': 'New folder'}]]
+[2026-01-04 15:55:36,394] [INFO] __main__: Metadata 0: {'chunk_index': 0, 'source': 'New folder/akmg_resume.pdf', 'file': 'New folder/akmg_resume.pdf', 'page_string': 'Page 1', 'page': 1, 'folder': 'New folder'}
+[2026-01-04 15:55:49,107] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:55:49,109] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:55:49] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:56:02,230] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:56:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:56:02,234] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:56:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:57:02,224] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:57:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:57:02,227] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:57:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:58:02,222] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:58:02,224] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:58:16,704] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:16] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:58:27,255] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:27] "GET / HTTP/1.1" 200 -
+[2026-01-04 15:58:27,294] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:27] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:58:27,295] [INFO] __main__: Getting inventory
+[2026-01-04 15:58:27,487] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:27] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 15:58:42,538] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 15:58:42,543] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 15:58:42,543] [INFO] __main__: Metadatas structure: [[{'page': 1, 'page_string': 'Page 1', 'chunk_index': 0, 'folder': 'New folder', 'source': 'New folder/akmg_resume.pdf', 'file': 'New folder/akmg_resume.pdf'}]]
+[2026-01-04 15:58:42,544] [INFO] __main__: Metadata 0: {'page': 1, 'page_string': 'Page 1', 'chunk_index': 0, 'folder': 'New folder', 'source': 'New folder/akmg_resume.pdf', 'file': 'New folder/akmg_resume.pdf'}
+[2026-01-04 15:58:57,304] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:58:57] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:59:02,212] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:59:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:59:20,128] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 15:59:20,129] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:59:20] "POST /query HTTP/1.1" 200 -
+[2026-01-04 15:59:27,299] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:59:27] "GET /health HTTP/1.1" 200 -
+[2026-01-04 15:59:58,205] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 15:59:58] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:00:02,201] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:00:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:00:28,207] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:00:28] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:00:58,192] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:00:58] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:01:02,197] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:01:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:01:15,965] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 16:01:15,965] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 16:01:17,237] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 16:01:20,934] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 16:01:21,143] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 16:01:23,668] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 16:01:23,669] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 16:01:23,669] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 16:01:23,669] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 16:01:23,788] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 16:01:23,916] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 16:01:23,916] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 16:01:23,917] [INFO] __main__: Debug mode: True
+[2026-01-04 16:01:23,917] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 16:01:23,917] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 16:01:23,917] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 16:01:23,948] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 16:01:23,954] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 16:01:28,198] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:01:28] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:01:38,027] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:01:38,080] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 16:01:38,081] [INFO] __main__: Metadatas structure: [[{'folder': 'New folder', 'page_string': 'Page 1', 'source': 'New folder/akmg_resume.pdf', 'page': 1, 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0}]]
+[2026-01-04 16:01:38,081] [INFO] __main__: Metadata 0: {'folder': 'New folder', 'page_string': 'Page 1', 'source': 'New folder/akmg_resume.pdf', 'page': 1, 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0}
+[2026-01-04 16:01:51,034] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 16:01:51,035] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:01:51] "POST /query HTTP/1.1" 200 -
+[2026-01-04 16:01:58,195] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:01:58] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:02:02,198] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:02:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:02:32,203] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:02:32] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:02:45,491] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:02:45,497] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 16:02:45,497] [INFO] __main__: Metadatas structure: [[{'source': 'New folder/akmg_resume.pdf', 'chunk_index': 0, 'page': 1, 'folder': 'New folder', 'file': 'New folder/akmg_resume.pdf', 'page_string': 'Page 1'}]]
+[2026-01-04 16:02:45,498] [INFO] __main__: Metadata 0: {'source': 'New folder/akmg_resume.pdf', 'chunk_index': 0, 'page': 1, 'folder': 'New folder', 'file': 'New folder/akmg_resume.pdf', 'page_string': 'Page 1'}
+[2026-01-04 16:02:49,834] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:02:49] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-01-04 16:02:57,284] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:02:57] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:03:00,161] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 16:03:00,162] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:00] "POST /query HTTP/1.1" 200 -
+[2026-01-04 16:03:02,189] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:03:03,468] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-01-04 16:03:15,328] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:15] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:03:15,352] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:03:15,353] [INFO] __main__: Getting inventory
+[2026-01-04 16:03:15,528] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:15] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:03:16,944] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:16] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:03:16,960] [INFO] __main__: Getting inventory
+[2026-01-04 16:03:16,961] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:16] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:03:16,963] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:16] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:03:22,437] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:22] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-01-04 16:03:38,007] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:38] "[33mPOST /delete_file HTTP/1.1[0m" 404 -
+[2026-01-04 16:03:44,609] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:44] "[33mPOST /delete_folder HTTP/1.1[0m" 404 -
+[2026-01-04 16:03:46,971] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:46] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:03:50,238] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:03:50] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-01-04 16:04:02,183] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:04:15,783] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:15] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:04:15,824] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:04:15,827] [INFO] __main__: Getting inventory
+[2026-01-04 16:04:15,829] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:15] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:04:17,173] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:17] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:04:23,271] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:23] "[33mPOST /delete_file HTTP/1.1[0m" 404 -
+[2026-01-04 16:04:41,619] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:04:41,623] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 16:04:41,623] [INFO] __main__: Metadatas structure: [[{'source': 'New folder/akmg_resume.pdf', 'folder': 'New folder', 'page_string': 'Page 1', 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0, 'page': 1}]]
+[2026-01-04 16:04:41,623] [INFO] __main__: Metadata 0: {'source': 'New folder/akmg_resume.pdf', 'folder': 'New folder', 'page_string': 'Page 1', 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0, 'page': 1}
+[2026-01-04 16:04:45,822] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:45] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:04:47,168] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:04:47] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:05:00,149] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 16:05:00,150] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:05:00] "POST /query HTTP/1.1" 200 -
+[2026-01-04 16:05:15,826] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:05:15] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:05:17,174] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:05:17] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:05:46,159] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:05:46] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:05:47,174] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:05:47] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:06:16,170] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:06:16] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:06:16,948] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:06:16] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:06:46,165] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:06:46] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:07:02,077] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:07:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:07:16,160] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:07:16] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:07:46,162] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:07:46] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:08:18,608] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:18] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:08:20,604] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:20] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:08:20,624] [INFO] __main__: Getting inventory
+[2026-01-04 16:08:20,625] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:08:20,627] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:20] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:08:37,394] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:37] "POST /clear_db HTTP/1.1" 200 -
+[2026-01-04 16:08:37,400] [INFO] __main__: Getting inventory
+[2026-01-04 16:08:37,406] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:37] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:08:43,788] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:43] "[33mPOST /delete_folder HTTP/1.1[0m" 404 -
+[2026-01-04 16:08:48,412] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:48] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+[2026-01-04 16:08:50,624] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:08:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:09:21,154] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:09:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:09:51,147] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:09:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:10:21,142] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:10:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:10:44,350] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 16:10:44,352] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\OneDrive\\Documents\\aidp\\aidp4\\app.py', reloading
+[2026-01-04 16:10:46,417] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 16:10:51,361] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 16:10:51,676] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 16:10:54,612] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 16:10:54,613] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 16:10:54,613] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 16:10:54,614] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 16:10:54,794] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 16:10:55,037] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 16:10:55,038] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 16:10:55,038] [INFO] __main__: Debug mode: True
+[2026-01-04 16:10:55,038] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 16:10:55,039] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 16:10:55,039] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 16:10:55,083] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 16:10:55,089] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 16:10:55,143] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:10:55] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:11:10,825] [INFO] __main__: Cleared 1 documents from folder: New folder
+[2026-01-04 16:11:10,827] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:10] "POST /clear_folder HTTP/1.1" 200 -
+[2026-01-04 16:11:14,886] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:14] "POST /delete_file HTTP/1.1" 200 -
+[2026-01-04 16:11:20,626] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:11:23,405] [INFO] __main__: Getting inventory
+[2026-01-04 16:11:23,407] [INFO] __main__: No documents found in inventory
+[2026-01-04 16:11:23,408] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:23] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:11:34,199] [INFO] __main__: Getting inventory
+[2026-01-04 16:11:34,200] [INFO] __main__: No documents found in inventory
+[2026-01-04 16:11:34,201] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:34] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:11:50,616] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:11:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:12:20,612] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:12:27,385] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:27] "POST /delete_folder HTTP/1.1" 200 -
+[2026-01-04 16:12:27,391] [INFO] __main__: Getting inventory
+[2026-01-04 16:12:27,394] [INFO] __main__: No documents found in inventory
+[2026-01-04 16:12:27,394] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:27] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:12:41,197] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:12:41,278] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:41] "POST /process_folder_files HTTP/1.1" 200 -
+[2026-01-04 16:12:41,285] [INFO] __main__: Getting inventory
+[2026-01-04 16:12:41,288] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:41] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:12:47,645] [INFO] __main__: Cleared 1 documents from folder: New folder
+[2026-01-04 16:12:47,647] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:47] "POST /delete_folder HTTP/1.1" 200 -
+[2026-01-04 16:12:47,656] [INFO] __main__: Getting inventory
+[2026-01-04 16:12:47,658] [INFO] __main__: No documents found in inventory
+[2026-01-04 16:12:47,659] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:47] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:12:50,605] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:12:56,364] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:12:56,389] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:56] "POST /process_folder_files HTTP/1.1" 200 -
+[2026-01-04 16:12:56,397] [INFO] __main__: Getting inventory
+[2026-01-04 16:12:56,399] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:12:56] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-04 16:13:17,332] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/embeddings "HTTP/1.1 200 OK"
+[2026-01-04 16:13:17,377] [INFO] __main__: Search results keys: ['ids', 'embeddings', 'documents', 'uris', 'included', 'data', 'metadatas', 'distances']
+[2026-01-04 16:13:17,378] [INFO] __main__: Metadatas structure: [[{'page_string': 'Page 1', 'source': 'New folder/akmg_resume.pdf', 'folder': 'New folder', 'page': 1, 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0}]]
+[2026-01-04 16:13:17,378] [INFO] __main__: Metadata 0: {'page_string': 'Page 1', 'source': 'New folder/akmg_resume.pdf', 'folder': 'New folder', 'page': 1, 'file': 'New folder/akmg_resume.pdf', 'chunk_index': 0}
+[2026-01-04 16:13:20,609] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:13:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:13:50,603] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:13:50] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:14:12,159] [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+[2026-01-04 16:14:12,160] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:14:12] "POST /query HTTP/1.1" 200 -
+[2026-01-04 16:14:21,126] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:14:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:14:51,119] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:14:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:15:52,125] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:15:52] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:16:53,119] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:16:53] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:17:54,114] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:17:54] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:18:55,100] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:18:55] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:19:20,583] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:19:20] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:19:51,101] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:19:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:20:21,097] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:20:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:21:02,089] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:21:02] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:21:56,701] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:21:56] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:22:00,903] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:22:00] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:22:21,141] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:22:21] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:22:51,093] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:22:51] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:23:52,079] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:23:52] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:24:53,078] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:24:53] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:25:54,072] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:25:54] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:26:36,424] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\__init__.py', reloading
+[2026-01-04 16:26:36,440] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\app.py', reloading
+[2026-01-04 16:26:36,493] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\sansio\\app.py', reloading
+[2026-01-04 16:26:36,524] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\sansio\\scaffold.py', reloading
+[2026-01-04 16:26:36,546] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\globals.py', reloading
+[2026-01-04 16:26:36,549] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\wrappers.py', reloading
+[2026-01-04 16:26:36,555] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\werkzeug\\wrappers\\__init__.py', reloading
+[2026-01-04 16:26:36,557] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\werkzeug\\wrappers\\request.py', reloading
+[2026-01-04 16:26:36,568] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\werkzeug\\sansio\\request.py', reloading
+[2026-01-04 16:26:36,577] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\json\\__init__.py', reloading
+[2026-01-04 16:26:36,583] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\werkzeug\\wrappers\\response.py', reloading
+[2026-01-04 16:26:36,599] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\werkzeug\\sansio\\response.py', reloading
+[2026-01-04 16:26:36,611] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\templating.py', reloading
+[2026-01-04 16:26:36,618] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\jinja2\\__init__.py', reloading
+[2026-01-04 16:26:36,622] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\jinja2\\environment.py', reloading
+[2026-01-04 16:26:36,691] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\PyPDF2\\__init__.py', reloading
+[2026-01-04 16:26:36,695] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\PyPDF2\\_reader.py', reloading
+[2026-01-04 16:26:36,761] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\docx\\__init__.py', reloading
+[2026-01-04 16:26:36,768] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\docx\\api.py', reloading
+[2026-01-04 16:26:36,774] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\docx\\document.py', reloading
+[2026-01-04 16:26:36,784] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\docx\\shared.py', reloading
+[2026-01-04 16:26:36,797] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\chromadb\\__init__.py', reloading
+[2026-01-04 16:26:37,670] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-04 16:26:42,557] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-04 16:26:42,825] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-04 16:26:45,687] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-04 16:26:45,688] [INFO] __main__: Ollama client initialized successfully
+[2026-01-04 16:26:45,688] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-04 16:26:45,688] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-04 16:26:45,865] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-04 16:26:46,047] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-04 16:26:46,048] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-04 16:26:46,049] [INFO] __main__: Debug mode: True
+[2026-01-04 16:26:46,049] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-04 16:26:46,049] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-04 16:26:46,049] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-04 16:26:46,096] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-04 16:26:46,102] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-04 16:26:55,066] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:26:55] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:27:56,069] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:27:56] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:28:57,063] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:28:57] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:29:30,199] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:29:30] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:29:36,244] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:29:36] "GET / HTTP/1.1" 200 -
+[2026-01-04 16:29:36,268] [INFO] __main__: Getting inventory
+[2026-01-04 16:29:36,269] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:29:36] "GET /health HTTP/1.1" 200 -
+[2026-01-04 16:29:36,337] [INFO] werkzeug: 127.0.0.1 - - [04/Jan/2026 16:29:36] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-06 19:28:52,115] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-06 19:28:52,472] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-06 19:28:55,484] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-06 19:28:55,485] [INFO] __main__: Ollama client initialized successfully
+[2026-01-06 19:28:55,485] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-06 19:28:55,485] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-06 19:28:56,056] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-06 19:28:56,411] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-06 19:28:56,412] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-06 19:28:56,412] [INFO] __main__: Debug mode: True
+[2026-01-06 19:28:56,413] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-06 19:28:56,413] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-06 19:28:56,414] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-06 19:28:57,799] [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.181.16.103:5000
+[2026-01-06 19:28:57,800] [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+[2026-01-06 19:28:57,829] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-06 19:29:02,189] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-06 19:29:02,474] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-06 19:29:05,326] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-06 19:29:05,328] [INFO] __main__: Ollama client initialized successfully
+[2026-01-06 19:29:05,328] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-06 19:29:05,328] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-06 19:29:05,474] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-06 19:29:05,699] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-06 19:29:05,699] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-06 19:29:05,699] [INFO] __main__: Debug mode: True
+[2026-01-06 19:29:05,700] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-06 19:29:05,700] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-06 19:29:05,700] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-06 19:29:05,737] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-06 19:29:05,744] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-06 19:30:32,130] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:32] "GET / HTTP/1.1" 200 -
+[2026-01-06 19:30:32,263] [INFO] __main__: Getting inventory
+[2026-01-06 19:30:32,266] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:32] "GET /health HTTP/1.1" 200 -
+[2026-01-06 19:30:32,278] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-01-06 19:30:32,372] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:32] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-06 19:30:41,050] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:41] "POST /clear_db HTTP/1.1" 200 -
+[2026-01-06 19:30:41,057] [INFO] __main__: Getting inventory
+[2026-01-06 19:30:41,060] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:41] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-06 19:30:49,633] [INFO] __main__: Cleared 1 documents from folder: New folder
+[2026-01-06 19:30:49,634] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:49] "POST /delete_folder HTTP/1.1" 200 -
+[2026-01-06 19:30:49,641] [INFO] __main__: Getting inventory
+[2026-01-06 19:30:49,643] [INFO] __main__: No documents found in inventory
+[2026-01-06 19:30:49,644] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:49] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-06 19:30:53,599] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:53] "POST /clear_db HTTP/1.1" 200 -
+[2026-01-06 19:30:53,605] [INFO] __main__: Getting inventory
+[2026-01-06 19:30:53,607] [INFO] __main__: No documents found in inventory
+[2026-01-06 19:30:53,608] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:30:53] "GET /get_inventory HTTP/1.1" 200 -
+[2026-01-06 19:31:02,454] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:31:02] "GET /health HTTP/1.1" 200 -
+[2026-01-06 19:31:32,451] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:31:32] "GET /health HTTP/1.1" 200 -
+[2026-01-06 19:32:02,452] [INFO] werkzeug: 127.0.0.1 - - [06/Jan/2026 19:32:02] "GET /health HTTP/1.1" 200 -
+[2026-01-06 19:32:12,795] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\__init__.py', reloading
+[2026-01-06 19:32:12,848] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\flask\\app.py', reloading
+[2026-01-06 19:32:13,604] [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+[2026-01-06 19:32:16,826] [INFO] __main__: Initializing Vector Search Document Q&A Application
+[2026-01-06 19:32:17,062] [INFO] __main__: Connecting to Ollama at http://localhost:11434
+[2026-01-06 19:32:19,713] [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+[2026-01-06 19:32:19,714] [INFO] __main__: Ollama client initialized successfully
+[2026-01-06 19:32:19,715] [INFO] __main__: Available models: ['nomic-embed-text:latest', 'llama3:latest', 'gpt-oss:120b-cloud', 'qwen:latest', 'llama3.2:latest', 'qwen2.5:latest', 'llama2:latest', 'qwen2.5:7b', 'qwen2.5:0.5b', 'gemma3:1b']
+[2026-01-06 19:32:19,715] [INFO] __main__: Initializing ChromaDB at ./chroma_db
+[2026-01-06 19:32:19,831] [INFO] chromadb.telemetry.product.posthog: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2026-01-06 19:32:20,020] [INFO] __main__: ChromaDB initialized successfully with collection: documents
+[2026-01-06 19:32:20,020] [INFO] __main__: Starting Vector Search Document Q&A Application on 0.0.0.0:5000
+[2026-01-06 19:32:20,020] [INFO] __main__: Debug mode: True
+[2026-01-06 19:32:20,021] [INFO] __main__: Ollama model: llama3:latest
+[2026-01-06 19:32:20,021] [INFO] __main__: Embedding model: nomic-embed-text:latest
+[2026-01-06 19:32:20,021] [INFO] __main__: Ollama host: http://localhost:11434
+[2026-01-06 19:32:20,052] [WARNING] werkzeug:  * Debugger is active!
+[2026-01-06 19:32:20,058] [INFO] werkzeug:  * Debugger PIN: 706-875-735
+[2026-01-06 19:32:20,134] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\ollama\\_types.py', reloading
+[2026-01-06 19:32:20,382] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\pydantic\\_internal\\_model_construction.py', reloading
+[2026-01-06 19:32:20,561] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\pydantic\\fields.py', reloading
+[2026-01-06 19:32:20,703] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\pydantic_core\\__init__.py', reloading
+[2026-01-06 19:32:20,948] [INFO] werkzeug:  * Detected change in 'C:\\Users\\ankur\\AppData\\Roaming\\Python\\Python313\\site-packages\\pydantic\\aliases.py', reloading

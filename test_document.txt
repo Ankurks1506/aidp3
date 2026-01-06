@@ -1,0 +1,5 @@
+This is a test document for the vector search application.
+It contains multiple sentences to test the chunking functionality.
+The system should be able to process this text and answer questions about it.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
